@@ -4,16 +4,16 @@ export const NavbarRoutes = [
     name: "Home",
   },
   {
-    path: "/categories/Teclados",
-    name: "Teclados",
+    path: "/categories/Keyboards",
+    name: "Keyboads",
   },
   {
-    path: "/categories/Auriculares",
-    name: "Auriculares",
+    path: "/categories/Headsets",
+    name: "Headsets",
   },
   {
-    path: "/categories/Monitores",
-    name: "Monitores",
+    path: "/categories/Monitors",
+    name: "Monitors",
   },
   {
     path: "/categories/Mouses",

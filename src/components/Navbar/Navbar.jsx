@@ -1,4 +1,5 @@
 import BrandName from "./BrandName";
+import CartWidget from "./CartWidget";
 import { NavbarRoutes } from "../../routes/NavbarRoutes";
 import { NavLink } from "react-router-dom";
 const Navbar = () => {
@@ -30,6 +31,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+      <CartWidget countNumber={4} />
     </nav>
   );
 };

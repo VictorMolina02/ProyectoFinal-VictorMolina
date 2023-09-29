@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../services/products";
-
-export const useProductList = () => {
+import { filterProducts } from "../services/products";
+export const useProductByCategory = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     setInterval(() => {
-      getProducts()
+      filterProducts()
         .then((resp) => resp.json())
         .then((data) => setProduct(data))
         .finally(() => setLoading(false));

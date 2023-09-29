@@ -1,38 +1,37 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import HomeView from "./views/HomeView";
-import Layout from "./pages/Layout";
-//import ProductById from "./views/ProductById";
-import CategoryView from "./views/CategoryView";
-import ProductById from "./views/ProductById";
+import Layout from "./views/Layout";
+import ItemListContainer from "./views/ItemListContainer";
+import ItemDetailContainer from "./views/ItemDetailContainer";
+import ItemListCategoryContainer from "./views/ItemListCategoryContainer";
 
 function App() {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route exact path="/" element={<HomeView />} />
+          <Route exact path="/" element={<ItemListContainer />} />
           <Route
             exact
-            path="/categories/Teclados"
-            element={<CategoryView filter="Teclado" />}
+            path="/categories/Keyboards"
+            element={<ItemListCategoryContainer filter="Teclado" />}
           />
           <Route
             exact
-            path="/categories/Auriculares"
-            element={<CategoryView filter="Auriculares" />}
+            path="/categories/Headsets"
+            element={<ItemListCategoryContainer filter="Auriculares" />}
           />
           <Route
             exact
-            path="/categories/Monitores"
-            element={<CategoryView filter="Monitor" />}
+            path="/categories/Monitors"
+            element={<ItemListCategoryContainer filter="Monitor" />}
           />
           <Route
             exact
             path="/categories/Mouses"
-            element={<CategoryView filter="Mouse" />}
+            element={<ItemListCategoryContainer filter="Mouse" />}
           />
-          <Route path="/product/:name" element={<ProductById />} />
+          <Route path="/item/:name" element={<ItemDetailContainer />} />
         </Routes>
       </Layout>
     </BrowserRouter>
