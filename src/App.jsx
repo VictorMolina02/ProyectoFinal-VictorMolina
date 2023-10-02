@@ -4,6 +4,7 @@ import Layout from "./views/Layout";
 import ItemListContainer from "./views/ItemListContainer";
 import ItemDetailContainer from "./views/ItemDetailContainer";
 import ItemListCategoryContainer from "./views/ItemListCategoryContainer";
+import NotFound from "./views/NotFound";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             element={<ItemListCategoryContainer filter="Mouse" />}
           />
           <Route path="/item/:name" element={<ItemDetailContainer />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </BrowserRouter>
