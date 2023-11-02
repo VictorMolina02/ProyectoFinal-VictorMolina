@@ -1,6 +1,11 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { NavLink } from "react-router-dom";
 const CartIcon = () => {
-  return <ShoppingCartIcon />;
+  return (
+    <NavLink to={"/cart"}>
+      <ShoppingCartIcon />
+    </NavLink>
+  );
 };
 
 export default CartIcon;

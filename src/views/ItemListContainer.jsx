@@ -1,9 +1,9 @@
 import { CircularProgress } from "@mui/material";
 import ProductCard from "../components/ProductCard";
-import { useProductList } from "../hooks/useProductList";
+import useProductList from "../hooks/useProductList";
 const ItemListContainer = () => {
-  const { product, loading } = useProductList();
-  if (loading) {
+  const { items, isLoading } = useProductList();
+  if (isLoading) {
     return (
       <div className="loadingScreen">
         <CircularProgress />
@@ -12,13 +12,13 @@ const ItemListContainer = () => {
   }
   return (
     <div className="cardsContainer">
-      {product.map((producto) => {
+      {items.map((producto) => {
         return (
           <ProductCard
             key={producto.id}
             img={producto.image}
             title={producto.name}
-            route={producto.name}
+            route={producto.id}
           />
         );
       })}

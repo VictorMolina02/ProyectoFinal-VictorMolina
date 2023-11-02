@@ -1,8 +1,22 @@
-# React + Vite
+# Carrito de compras con React JS y Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un carrito de compras básico realizado con React JS y Vite. Utiliza las siguientes librerías:
 
-Currently, two official plugins are available:
+- Bootstrap
+- Material UI
+- React Router DOM
+- Toastify
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
+
+Para clonar e instalar el proyecto, sigue estos pasos:
+
+git clone https://github.com/VictorMolina02/PF-VictorMolina
+cd carrito-de-compras
+npm install
+
+## Ejecución
+
+Para ejecutar el proyecto, ejecuta el siguiente comando:
+
+npm start

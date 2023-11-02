@@ -1,12 +1,28 @@
-import { CircularProgress } from "@mui/material";
 import ProductCard from "../components/ProductCard";
-import { useProductByCategory } from "../hooks/useProductByCategory";
-const ItemListCategoryContainer = ({ filter }) => {
-  const { product, loading } = useProductByCategory();
-  const productFilter = product.filter((product) =>
-    product.category.includes(filter)
-  );
-  if (loading) {
+import { useEffect, useState } from "react";
+import { doc, getDoc, getFirestore } from "@firebase/firestore";
+import useProductList from "../hooks/useProductList";
+import { CircularProgress } from "@mui/material";
+const ItemListCategory = ({ category }) => {
+  const { isLoading } = useProductList();
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    const db = getFirestore();
+    const itemRef = doc(db, "items", category);
+    getDoc(itemRef)
+      .then((snapshot) => {
+        setItems([
+          {
+            id: snapshot.id,
+            ...snapshot.data(),
+          },
+        ]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+  if (isLoading) {
     return (
       <div className="loadingScreen">
         <CircularProgress />
@@ -15,17 +31,18 @@ const ItemListCategoryContainer = ({ filter }) => {
   }
   return (
     <div className="cardsContainer">
-      {productFilter.map((producto) => {
+      {items.map((producto) => {
         return (
           <ProductCard
             key={producto.id}
             img={producto.image}
             title={producto.name}
-            route={producto.name}
+            route={producto.id}
           />
         );
       })}
     </div>
   );
 };
-export default ItemListCategoryContainer;
+
+export default ItemListCategory;

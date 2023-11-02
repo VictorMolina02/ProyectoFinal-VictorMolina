@@ -2,7 +2,10 @@ import BrandName from "./BrandName";
 import CartWidget from "./CartWidget";
 import { NavbarRoutes } from "../../routes/NavbarRoutes";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../../context/cartContext";
 const Navbar = () => {
+  const { cart } = useContext(CartContext);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -31,7 +34,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <CartWidget countNumber={4} />
+      <CartWidget countNumber={cart.items.length} />
     </nav>
   );
 };

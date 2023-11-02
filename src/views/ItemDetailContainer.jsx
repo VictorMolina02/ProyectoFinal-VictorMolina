@@ -1,11 +1,15 @@
-import { useState } from "react";
-import { useProductByName } from "../hooks/useProductByName";
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
+import InfoCard from "../components/InfoCard";
+import CartContext from "../context/cartContext";
+import useProductById from "../hooks/useProductById";
 import { CircularProgress } from "@mui/material";
-
-const ItemDetailContainer = () => {
-  const { product, loading } = useProductByName();
-  const [add, setAdd] = useState("ADD");
-  if (loading) {
+export const ItemDetailContainer = () => {
+  const { addItem } = useContext(CartContext);
+  const { name } = useParams();
+  const { item, isLoading } = useProductById(name);
+  console.log(item);
+  if (isLoading) {
     return (
       <div className="loadingScreen">
         <CircularProgress />
@@ -13,20 +17,15 @@ const ItemDetailContainer = () => {
     );
   }
   return (
-    <div className="cardsDetailContainer">
-      <div className="card" key={product.id}>
-        <img src={product.image} className="card-img-top" alt={product.name} />
-        <div className="card-body">
-          <h5 className="card-title">{product.name}</h5>
-          <p className="card-text">
-            <small>{product.description}</small>
-          </p>
-          <p className="card-text fw-bold">${product.price}</p>
-          <button className="btn btn-success" onClick={() => setAdd("ADDED")}>
-            {add}
-          </button>
-        </div>
-      </div>
+    <div className="cardsContainer">
+      <InfoCard
+        key={item.id}
+        img={item.image}
+        title={item.name}
+        description={item.description}
+        price={item.price}
+        add={() => addItem(item, 1)}
+      />
     </div>
   );
 };

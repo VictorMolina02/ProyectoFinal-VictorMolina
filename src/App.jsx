@@ -3,8 +3,9 @@ import "./App.css";
 import Layout from "./views/Layout";
 import ItemListContainer from "./views/ItemListContainer";
 import ItemDetailContainer from "./views/ItemDetailContainer";
-import ItemListCategoryContainer from "./views/ItemListCategoryContainer";
 import NotFound from "./views/NotFound";
+import Cart from "./views/Cart";
+import ItemListCategoryContainer from "./views/ItemListCategoryContainer";
 
 function App() {
   return (
@@ -15,24 +16,26 @@ function App() {
           <Route
             exact
             path="/categories/Keyboards"
-            element={<ItemListCategoryContainer filter="Teclado" />}
+            element={
+              <ItemListCategoryContainer category="lRFr0PwSCtHeniE6SXqu" />
+            }
           />
           <Route
             exact
             path="/categories/Headsets"
-            element={<ItemListCategoryContainer filter="Auriculares" />}
-          />
-          <Route
-            exact
-            path="/categories/Monitors"
-            element={<ItemListCategoryContainer filter="Monitor" />}
+            element={
+              <ItemListCategoryContainer category="VapJcM9OIcUM1cG5TAWK" />
+            }
           />
           <Route
             exact
             path="/categories/Mouses"
-            element={<ItemListCategoryContainer filter="Mouse" />}
+            element={
+              <ItemListCategoryContainer category="ugSzq1mgsivvHr1c4IzI" />
+            }
           />
           <Route path="/item/:name" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

@@ -12,10 +12,6 @@ export const NavbarRoutes = [
     name: "Headsets",
   },
   {
-    path: "/categories/Monitors",
-    name: "Monitors",
-  },
-  {
     path: "/categories/Mouses",
     name: "Mouses",
   },

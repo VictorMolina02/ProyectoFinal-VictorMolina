@@ -1,4 +1,4 @@
-const InfoCard = ({ img, title, description, price, add }) => {
+const CartCard = ({ img, title, description, price }) => {
   return (
     <div className="card">
       <img src={img} className="card-img-top" alt={title} />
@@ -9,11 +9,8 @@ const InfoCard = ({ img, title, description, price, add }) => {
         </p>
         <p className="card-text fw-bold">${price}</p>
       </div>
-      <button className="btn btn-primary" onClick={add}>
-        ADD
-      </button>
     </div>
   );
 };
 
-export default InfoCard;
+export default CartCard;
