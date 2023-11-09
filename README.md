@@ -11,9 +11,9 @@ Este proyecto es un carrito de compras básico realizado con React JS y Vite. Ut
 
 Para clonar e instalar el proyecto, sigue estos pasos:
 
--git clone https://github.com/VictorMolina02/ProyectoFinal-VictorMolina
--cd .\ProyectoFinal-VictorMolina
--npm install
+- git clone https://github.com/VictorMolina02/ProyectoFinal-VictorMolina
+- cd .\ProyectoFinal-VictorMolina
+- npm install
 
 ## Ejecución
 
